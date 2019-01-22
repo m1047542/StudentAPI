@@ -19,6 +19,14 @@ namespace StudentAPI.Controllers
             student = new Student();
         }
         
+        /// <summary>
+        /// Register the student
+        /// </summary>
+        /// <param name="studentNumber"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="collegeName"></param>
+        /// <returns></returns>
         [HttpGet]
         public HttpResponseMessage SaveStudent(string studentNumber, string firstName, string lastName, string collegeName)
         {
@@ -26,6 +34,11 @@ namespace StudentAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        /// <summary>
+        /// Get the student details
+        /// </summary>
+        /// <param name="studentNumber"></param>
+        /// <returns></returns>
         public HttpResponseMessage GetStudent(string studentNumber)
         {
             DataTable studentData = new DataTable();

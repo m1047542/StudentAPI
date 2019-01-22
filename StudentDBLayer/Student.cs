@@ -11,9 +11,10 @@ namespace StudentDBLayer
 {
     public class Student : IStudent
     {
+        //Global initialization
         private readonly MySqlConnection sqlConnection;
         private MySqlCommand sqlCommand;
-        readonly string connectionString = ConfigurationManager.ConnectionStrings["mysqlConnection"].ConnectionString;
+        readonly string connectionString = ConfigurationManager.ConnectionStrings["mysqlConnection"].ConnectionString;        
         public string sqlQuery = "";
         public Student()
         {
