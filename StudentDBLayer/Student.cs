@@ -20,6 +20,14 @@ namespace StudentDBLayer
         {
             sqlConnection = new MySqlConnection(connectionString);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="studentNumber"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="collegeName"></param>
+        /// <returns></returns>
         public int SaveStudent(string studentNumber, string firstName, string lastName, string collegeName)
         {
             int successcode = 0;
