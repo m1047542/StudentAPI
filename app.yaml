@@ -6,7 +6,7 @@ steps:
   args: ['push', 'gcr.io/red-planet-226907/studentapi']
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy']
-  timeout: 1600s
+  timeout: 600s
 options:
     machineType: 'N1_HIGHCPU_8'
 timeout: 660s
