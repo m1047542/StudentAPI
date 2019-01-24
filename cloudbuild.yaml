@@ -4,7 +4,7 @@ steps:
   timeout: 500s
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/red-planet-226907/studentapi']
-- name: 'gcr.io/cloud-builders/docker' 
+- name: 'gcr.io/cloud-builders/docker'
   args: ['ls', '-la']
   dir: '/workspace'
 options:
