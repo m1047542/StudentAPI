@@ -8,7 +8,7 @@ steps:
   args:
   - 'set'
   - 'image'
-  - 'deployment/studentapi'
+  - 'deployment'
   - 'my-container=gcr.io/red-planet-226907/studentapi'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
