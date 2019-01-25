@@ -8,7 +8,7 @@ steps:
   args: ['ls', '-la']
   dir: 'app'  
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['app', 'deploy', 'gcr.io/red-planet-226907/studentapi']
+  args: ['app', 'deploy', 'app/app.yaml']
   timeout: 600s
 options:
     machineType: 'N1_HIGHCPU_8'
