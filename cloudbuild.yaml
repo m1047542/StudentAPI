@@ -12,7 +12,7 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment', '--image=gcr.io/red-planet-226907/studentapi']
+  args: ['set', 'image', 'deployment/Student-API', 'studentapi=gcr.io/red-planet-226907/studentapi']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
