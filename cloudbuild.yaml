@@ -4,11 +4,13 @@ steps:
   timeout: 500s
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/red-planet-226907/studentapi']
+-name: 'gcr.io/cloud-builders/kubectl'
+  args: ['run', 'Student-API', '--image=gcr.io/red-planet-226907/studentapi']
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - 'set'
   - 'image'
-  - 'deployment'
+  - 'deployment/Student-API'
   - 'my-container=gcr.io/red-planet-226907/studentapi'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
