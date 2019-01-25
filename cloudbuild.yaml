@@ -15,7 +15,7 @@ steps:
 # args: ['run', 'Student-API', '--image=gcr.io/red-planet-226907/studentapi', '--port=8080']
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy']
-  options:
-    machineType: 'N1_HIGHCPU_8'
+options:
+  machineType: 'N1_HIGHCPU_8'
 timeout: 660s
 images: ['gcr.io/red-planet-226907/studentapi']
