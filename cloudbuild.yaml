@@ -6,10 +6,10 @@ steps:
   args: ['push', 'gcr.io/red-planet-226907/studentapi']
 - name: 'alpine'
   args: ['ls', '-la']
-  dir: '/app'  
-#- name: 'gcr.io/cloud-builders/gcloud'
- # args: ['app', 'deploy', '/StudentAPI/app.yaml']
-  #timeout: 600s
+  dir: 'app'  
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', 'gcr.io/red-planet-226907/studentapi']
+  timeout: 600s
 options:
     machineType: 'N1_HIGHCPU_8'
 timeout: 660s
