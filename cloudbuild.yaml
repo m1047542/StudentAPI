@@ -4,6 +4,8 @@ steps:
   timeout: 500s
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/red-planet-226907/studentapi']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['container', 'clusters', 'get-credentials', 'standard-cluster-1']
 -name: 'gcr.io/cloud-builders/kubectl'
   args: ['run', 'Student-API', '--image=gcr.io/red-planet-226907/studentapi:latest', '--port=8080']  
 options:
