@@ -4,8 +4,18 @@ steps:
   timeout: 500s
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/red-planet-226907/studentapi'] 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['run', '--rm', '-p', '8080:8080', 'gcr.io/red-planet-226907/studentapi']
+#- name: 'gcr.io/cloud-builders/docker'
+#  args: ['run', '--rm', '-p', '8080:8080', 'gcr.io/red-planet-226907/studentapi']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['container', 'clusters', 'get-credentials', 'standard-cluster-1']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+-name: 'gcr.io/cloud-builders/kubectl'
+ args: ['run', 'Student-API', '--image=gcr.io/red-planet-226907/studentapi', '--port=8080']
+ env:
+ - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
+ - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
 options:
     machineType: 'N1_HIGHCPU_8'
 timeout: 660s
