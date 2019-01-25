@@ -4,9 +4,12 @@ steps:
   timeout: 500s
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/red-planet-226907/studentapi']
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['app', 'deploy', '/StudentAPI/app.yaml']
-  timeout: 600s
+- name: 'alpine'
+  args: ['ls', '-la']
+  dir: '/app'  
+#- name: 'gcr.io/cloud-builders/gcloud'
+ # args: ['app', 'deploy', '/StudentAPI/app.yaml']
+  #timeout: 600s
 options:
     machineType: 'N1_HIGHCPU_8'
 timeout: 660s
