@@ -17,12 +17,12 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['run', 'deployment', '--all', 'my-container=gcr.io/red-planet-226907/studentapi', '--port 8080']
+  args: ['run', 'image', '--image=gcr.io/red-planet-226907/studentapi']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['expose', 'deployment', '--all', 'my-container=gcr.io/red-planet-226907/studentapi']
+  args: ['expose', 'image', '--image=gcr.io/red-planet-226907/studentapi']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
