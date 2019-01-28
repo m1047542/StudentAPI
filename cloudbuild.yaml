@@ -7,10 +7,10 @@ steps:
 #- name: 'gcr.io/cloud-builders/docker'
 #  args: ['run', '--rm', '-p', '8080:8080', 'gcr.io/red-planet-226907/studentapi']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['container', 'clusters', 'get-credentials', 'standard-cluster-1']
+  args: ['container', 'clusters', 'get-credentials', 'standard-cluster-2']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-2'
 #- name: 'gcr.io/cloud-builders/kubectl'
 #  args: ['set', 'image', 'deployment', '-all', 'studentapi=gcr.io/red-planet-226907/studentapi']
 #  env:
@@ -19,18 +19,18 @@ steps:
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['run', 'student-api', '--image=gcr.io/red-planet-226907/studentapi']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-2'
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['expose', 'deployment', 'student-api', '--port=80', '--target-port=8080']
+  args: ['expose', 'deployment', 'student-api', '--type=LoadBalancer', '--port=80', '--target-port=8080']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-2'
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['get', 'service', 'student-api']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-2'
 options:
   machineType: 'N1_HIGHCPU_8'
 timeout: 660s
