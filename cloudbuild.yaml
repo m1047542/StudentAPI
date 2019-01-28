@@ -11,21 +11,21 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+#- name: 'gcr.io/cloud-builders/kubectl'
+#  args: ['set', 'image', 'deployment', '-all', 'studentapi=gcr.io/red-planet-226907/studentapi']
+#  env:
+#  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
+#  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment', '-all', 'studentapi=gcr.io/red-planet-226907/studentapi']
+  args: ['run', 'student-api', '--image=gcr.io/red-planet-226907/studentapi']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
-#- name: 'gcr.io/cloud-builders/kubectl'
-#  args: ['run', 'student-api', '--image=gcr.io/red-planet-226907/studentapi']
-#  env:
-#  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
-#  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
-#- name: 'gcr.io/cloud-builders/kubectl'
-#  args: ['expose', 'deployment', 'student-api', '--port=80', '--target-port=8080']
-#  env:
-#  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
-#  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['expose', 'deployment', 'student-api', '--port=80', '--target-port=8080']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-east1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['get', 'service', 'student-api']
   env:
